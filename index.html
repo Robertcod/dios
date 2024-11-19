@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendario de Citas</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="contenedorBienvenida">
+      
+      <h2 class="titulo">Bienvenido a la agenda de tu establecimiento!</h2>
+    </div>
+
+    <p class="descripcion">
+      Aqui usted podra visualizar las citas de su establecimiento, presione la
+      fecha en el calendario para desplazarce por sus diferentes citas
+    </p>
+    <main>
+      <div class="contenedor-calendario">
+        <div class="cabecera-calendario">
+          <button onclick="cambiarMes(-1)">←</button>
+          <div id="mes-año"></div>
+          <button onclick="cambiarMes(1)">→</button>
+        </div>
+        <div class="cuadrícula-calendario">
+          <div class="nombres-dias">
+            <div>Dom</div>
+            <div>Lun</div>
+            <div>Mar</div>
+            <div>Mié</div>
+            <div>Jue</div>
+            <div>Vie</div>
+            <div>Sáb</div>
+          </div>
+          <div class="dias-calendario" id="dias-calendario"></div>
+        </div>
+      </div>
+
+      <div class="schedule-container" id="schedule" style="display: none">
+        <p id="mensaje-inicial" class="mensaje-inicial">
+          
+        </p>
+        <div class="schedule-grid" id="scheduleGrid"></div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
+<!-- // "19-11-2024": [
+//     { hora: "8:00", texto: "Alejandro<br>Corte de barba" },
+//     { hora: "10:00", texto: "Camilo<br>Peluquería" },
+//     { hora: "12:00", texto: "Luis<br>Pedicura" },
+//     { hora: "14:00", texto: "Marlon<br>Maquillaje" },
+//     { hora: "16:00", texto: "Karent<br>Peinado" },
+//   ],
+//   "20-11-2024": [
+//     { hora: "9:00", texto: "Daniel<br>Corte cabello" },
+//     { hora: "10:00", texto: "Marlon<br>Peinado" },
+//     { hora: "12:00", texto: "Miguel<br>Corte de barba" },
+//     { hora: "14:00", texto: "Robert<br>Manicura" },
+//   ],
+//   "21-11-2024": [
+//     { hora: "8:00", texto: "Gian<br>Maquillaje" },
+//     { hora: "10:00", texto: "Kevin<br>Corte cabello" },
+//     { hora: "12:00", texto: "Karent<br>Pedicura" },
+//     { hora: "14:00", texto: "Luis<br>Manicura" },
+//   ],
+//   "22-11-2024": [
+//     { hora: "9:00", texto: "Anegly<br>Pedicura" },
+//     { hora: "10:00", texto: "Camilo<br>Maquillaje" },
+//     { hora: "12:00", texto: "Alejandro<br>Corte cabello" },
+//     { hora: "14:00", texto: "Marlon<br>Peluquería" },
+//   ],
+//   "23-11-2024": [
+//     { hora: "9:00", texto: "Daniel<br>Corte barba" },
+//     { hora: "10:00", texto: "Robert<br>Peinado" },
+//     { hora: "12:00", texto: "Miguel<br>Manicura" },
+//     { hora: "14:00", texto: "Gian<br>Pedicura" },
+//   ],
+//   "24-11-2024": [
+//     { hora: "8:00", texto: "Kevin<br>Maquillaje" },
+//     { hora: "10:00", texto: "Luis<br>Corte cabello" },
+//     { hora: "12:00", texto: "Mauna<br>Peinado" },
+//     { hora: "14:00", texto: "Karent<br>Manicura" },
+//   ],
+//   "25-11-2024": [
+//     { hora: "9:00", texto: "Pedro<br>Maquillaje" },
+//     { hora: "10:00", texto: "Anegly<br>Peluquería" },
+//     { hora: "12:00", texto: "Luis<br>Manicura" },
+//     { hora: "14:00", texto: "Marlon<br>Pedicura" },
+//   ],
+//   "26-11-2024": [
+//     { hora: "9:00", texto: "Kevin<br>Corte barba" },
+//     { hora: "10:00", texto: "Robert<br>Peinado" },
+//     { hora: "12:00", texto: "Camilo<br>Maquillaje" },
+//     { hora: "14:00", texto: "Daniel<br>Pedicura" },
+//   ],
+//   "27-11-2024": [
+//     { hora: "9:00", texto: "Anegly<br>Corte cabello" },
+//     { hora: "10:00", texto: "Miguel<br>Peinado" },
+//     { hora: "12:00", texto: "Luis<br>Maquillaje" },
+//     { hora: "14:00", texto: "Gian<br>Pedicura" },
+//   ], -->

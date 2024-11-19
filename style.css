@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+}
+main {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+  padding: 2em;
+  flex-wrap: wrap; /* Para adaptarse a pantallas pequeñas */
+  justify-content: center;
+}
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  color: #a88b73;
+}
+.contenedorBienvenida {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  justify-content: center;
+  padding: 1em;
+}
+.logo {
+  position: absolute;
+  display: flex;
+  justify-content: left;
+  left: 0;
+  top: 0;
+}
+.titulo,
+.descripcion {
+  text-align: center;
+}
+.contenedor-calendario {
+  max-width: 600px;
+}
+.logo img {
+  width: 6em;
+  border-radius: 100%;
+}
+
+.cabecera-calendario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f3f3f3;
+  border-radius: 8px 8px 0 0;
+}
+
+button {
+  background-color: #a88b73;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #624023;
+}
+
+#mes-año {
+  font-size: 18px;
+  color: #624023;
+  font-weight: bold;
+}
+
+.cuadrícula-calendario {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(7, 40px);
+  gap: 5px;
+  padding: 10px;
+  background-color: #00000004;
+  border: 1px solid #ddd;
+  border-radius: 0.5em;
+  box-shadow: 0px 4px 8px rgba(143, 85, 9, 0.507);
+}
+
+.nombres-dias {
+  display: contents;
+}
+
+.nombres-dias div {
+  display: grid;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  color: white;
+  background-color: #a88b73;
+  padding: 5px;
+}
+
+.dias-calendario {
+  display: contents;
+}
+
+.dias-calendario div {
+  background-color: #dddddda9;
+  text-align: center;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 20%;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.dias-calendario div:hover {
+  background-color: #624023;
+  border-radius: 20%;
+  color: white;
+}
+
+#hoy {
+  background-color: #a88b73;
+  border-radius: 20%;
+  color: white;
+  font-weight: bold;
+}
+#schedule {
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block; /* Visible siempre */
+  overflow: auto; /* Para el contenido que se desborda */
+  /* Aquí eliminamos la propiedad "position: fixed" */
+}
+
+.schedule-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-image: url(./mylook.png);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-position: center;  z-index: 100;
+  display: block;
+  flex: 1;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: auto repeat(7, 1fr);
+  gap: 1px;
+  background-color: #e0e0e0;
+  padding: 10px;
+}
+
+.grid-cell {
+  background-color: white;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.header-cell {
+  color: white;
+  font-weight: bold;
+}
+
+.time-cell {
+  background-color: white;
+  color: #a88b73;
+  font-weight: bold;
+  text-align: right;
+}
+
+.day-cell {
+  width: 100%;
+}
+
+.appointment {
+  background-color: #a88b73;
+  color: white;
+  padding: 5px;
+  font-size: 0.8em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  grid-row: auto;
+}
+
+.day-header {
+  color: #a88b73;
+}
+
+.day-number {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #624023;
+}
+.schedule-grid .grid-cell.header-cell:nth-child(1) {
+  display: flex; /* Activar Flexbox */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  background-color: #a88b73; /* Color de fondo para la celda */
+  padding: 10px; /* Espaciado interno */
+  font-weight: bold; /* Poner el texto en negritas */
+  border: 1px solid #ddd; /* Borde suave para distinguir las celdas */
+  text-align: center; /* Asegura que el texto esté centrado */
+  font-size: 16px; /* Ajustar el tamaño de fuente */
+  color: #ffffff; /* Color de texto */
+}
+.diaVacio {
+  color: #00000069;
+}
+/* Estilo para pantallas pequeñas: una sola columna */
+
+.mensaje-inicial {
+  grid-column: 1 / -1; /* Abarcar todo el ancho */
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  color: #624023;
+  width: 100%;
+  height: 100%;
+  place-content: center;
+}
+
+.diaVacio {
+  background-color: #b61515; /* Un fondo claro para celdas vacías */
+  border: 1px solid #ddd;
+}
+
+
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr; /* Una sola columna */
+    #scheduleGrid {
+      grid-template-columns: 80px repeat(3, 1fr); /* Mostrar solo 3 días en dispositivos pequeños */
+    }
+  
+    /* Ajustar el tamaño de las celdas en la agenda */
+    .grid-cell {
+      font-size: 12px;
+      padding: 5px;
+    }
+  
+    .header-cell {
+      font-size: 14px;
+      padding: 8px;
+      text-align: center;
+    }
+  
+    .day-cell {
+      font-size: 12px;
+      padding: 8px;
+      text-align: center;
+    }
+  
+    .time-cell {
+      font-size: 12px;
+      padding: 8px;
+      text-align: center;
+    }
+  }
+  
+  /* Ajustes para pantallas aún más pequeñas */
+  @media screen and (max-width: 480px) {
+    .grid-cell {
+      font-size: 10px;
+    }
+  
+    #scheduleGrid {
+      grid-template-columns: 60px repeat(3, 1fr); /* Menos espacio, mejor ajuste para móviles */
+    }
+  }
+}
